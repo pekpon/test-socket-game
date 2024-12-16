@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Juego de reflejos</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <div id="initial-screen">
+      <h1>Juego de Reflejos</h1>
+      <button id="create-room-btn">Crear partida</button>
+      <hr>
+      <input type="text" id="join-code" placeholder="Código de partida">
+      <input type="text" id="username" placeholder="Tu nombre">
+      <button id="join-room-btn">Unirse a partida</button>
+    </div>
+
+    <div id="host-screen" class="hidden">
+      <h1>Partida creada</h1>
+      <p>Código de la partida: <span id="room-code"></span></p>
+      <p>Comparte este código con tus amigos para que se unan.</p>
+      <h3>Jugadores en la sala:</h3>
+      <ul id="player-list-host"></ul>
+      <button id="start-game-btn">Empezar</button>
+      <p id="host-error" class="error"></p>
+    </div>
+
+    <div id="player-wait-screen" class="hidden">
+      <h1>Estas en la partida</h1>
+      <p>Código de la partida: <span id="room-code-player"></span></p>
+      <h3>Jugadores en la sala:</h3>
+      <ul id="player-list"></ul>
+      <p>Esperando a que el host empiece el juego...</p>
+    </div>
+
+    <div id="game-waiting-screen" class="hidden">
+      <div class="screen white">
+        <p>Espera a que se ponga roja</p>
+      </div>
+    </div>
+
+    <div id="game-red-screen" class="hidden">
+      <div class="screen red">
+        <p>PULSA YA!</p>
+        <button id="click-btn">¡Pulsa!</button>
+      </div>
+    </div>
+
+    <div id="ranking-screen" class="hidden">
+      <h1>RANKING</h1>
+      <ul id="ranking-list"></ul>
+      <button id="next-game-btn">Siguiente juego</button>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
